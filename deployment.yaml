@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8ssecframework-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: k8ssecframework
+  template:
+    metadata:
+      labels:
+        app: k8ssecframework
+    spec:
+      containers:
+      - name: k8ssecframework
+        image: x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:latest
+        ports:
+        - containerPort: 8081
+      imagePullSecrets:
+      - name: acr-secret
