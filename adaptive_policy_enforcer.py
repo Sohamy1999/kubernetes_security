@@ -171,10 +171,24 @@ def enforce_policies(vulnerabilities):
                 apply_policy(resource_quota_yaml, "resource_quota")
 
         # Apply Pod Security Admission policy
-        apply_namespace_label()
+        apply_namespace_label(vulnerabilities[0])
+
     else:
-        print("No critical vulnerabilities found. Generating default policy...")
-        generate_default_policy()
+        print("No critical vulnerabilities found. Skipping policy generation and application.")
+        # Generate a minimal valid placeholder policy to prevent pipeline errors
+        placeholder_policy = """
+        apiVersion: networking.k8s.io/v1
+        kind: NetworkPolicy
+        metadata:
+          name: placeholder-policy
+          namespace: default
+        spec:
+          podSelector: {}
+        """
+        with open("dynamic-policy.yaml", "w") as file:
+            file.write(placeholder_policy)
+        print("Placeholder policy created to prevent pipeline errors.")
+
 
 def run_policy_enforcement():
     """
