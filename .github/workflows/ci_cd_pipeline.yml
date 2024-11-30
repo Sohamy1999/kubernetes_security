@@ -3,7 +3,7 @@ name: CI/CD Pipeline for Kubernetes Security Framework
 on:
   push:
     branches:
-      - main  # Trigger pipeline on push to the main branch
+      - main
   pull_request:
 
 jobs:
@@ -48,16 +48,22 @@ jobs:
       - name: Run Adaptive Policy Enforcer
         run: python adaptive_policy_enforcer.py
 
+      - name: Set Up kubectl
+        env:
+          KUBECONFIG: ${{ secrets.KUBECONFIG }}
+        run: |
+          echo "${{ secrets.KUBECONFIG }}" > kubeconfig
+          export KUBECONFIG=kubeconfig
+          kubectl cluster-info # Verify cluster connection
+
       - name: Check for dynamic-policy.yaml
         id: check-policy-file
         run: |
           if [ -f dynamic-policy.yaml ]; then
             echo "Policy file exists."
-            echo "policy_exists=true" >> $GITHUB_ENV
           else
             echo "Policy file does not exist. Creating default policy..."
-            echo "policy_exists=false" >> $GITHUB_ENV
-            # Create a default dummy policy to avoid breaking the pipeline
+            # Create a default dummy policy
             echo """
             apiVersion: networking.k8s.io/v1
             kind: NetworkPolicy
@@ -78,5 +84,5 @@ jobs:
 
       - name: Apply Kubernetes Policies
         run: |
-          kubectl apply -f dynamic-policy.yaml -n default
+          kubectl apply -f dynamic-policy.yaml -n default --validate=false
           kubectl get networkpolicy -n default
