@@ -57,7 +57,7 @@ def label_pod(vulnerability, pod_name):
     except subprocess.CalledProcessError as e:
         print(f"Failed to label pod '{pod_name}': {e}")
 
-def apply_namespace_label(vulnerability):
+def apply_namespace_label():
     """
     Apply a Pod Security Admission label to the namespace for enforcing security constraints.
     """
@@ -70,6 +70,30 @@ def apply_namespace_label(vulnerability):
         print("Pod Security Admission policy applied successfully.")
     except subprocess.CalledProcessError as e:
         print(f"Failed to apply Pod Security Admission policy: {e}")
+
+def generate_default_policy():
+    """
+    Generate a default permissive policy if no critical vulnerabilities are found.
+    """
+    default_policy_yaml = """
+    apiVersion: networking.k8s.io/v1
+    kind: NetworkPolicy
+    metadata:
+      name: allow-all-traffic
+      namespace: default
+    spec:
+      podSelector: {}
+      policyTypes:
+      - Ingress
+      - Egress
+      ingress:
+      - {}
+      egress:
+      - {}
+    """
+    with open("dynamic-policy.yaml", "w") as file:
+        file.write(default_policy_yaml)
+    print("Default permissive policy generated.")
 
 def generate_policy_yaml(policy_type, vulnerability, label_value):
     """
@@ -147,9 +171,10 @@ def enforce_policies(vulnerabilities):
                 apply_policy(resource_quota_yaml, "resource_quota")
 
         # Apply Pod Security Admission policy
-        apply_namespace_label(vulnerabilities[0])
+        apply_namespace_label()
     else:
-        print("No critical vulnerabilities found. No policy changes required.")
+        print("No critical vulnerabilities found. Generating default policy...")
+        generate_default_policy()
 
 def run_policy_enforcement():
     """
@@ -160,6 +185,7 @@ def run_policy_enforcement():
 
     if not scan_results:
         print("No scan results available. Exiting.")
+        generate_default_policy()
         return
 
     critical_vulnerabilities = analyze_scan_results(scan_results)
