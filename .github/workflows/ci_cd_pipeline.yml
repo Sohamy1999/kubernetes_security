@@ -1,0 +1,54 @@
+name: CI/CD Pipeline for Kubernetes Security Framework
+
+on:
+  push:
+    branches:
+      - main  # Trigger pipeline on push to the main branch
+  pull_request:
+
+jobs:
+  build-and-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set Up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Build Docker Image
+        run: |
+          docker build -t x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:latest .
+
+      - name: Push Docker Image to Azure Container Registry
+        env:
+          AZURE_USERNAME: ${{ secrets.AZURE_USERNAME }}
+          AZURE_PASSWORD: ${{ secrets.AZURE_PASSWORD }}
+        run: |
+          echo "${{ secrets.AZURE_PASSWORD }}" | docker login x23173394k8scontainerregistry.azurecr.io -u "${{ secrets.AZURE_USERNAME }}" --password-stdin
+          docker push x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:latest
+
+      - name: Run Custom Security Scanning Agent
+        run: python custom_scanner.py
+
+      - name: Archive Scan Results
+        uses: actions/upload-artifact@v3
+        with:
+          name: scan_results
+          path: scan_results.json
+
+      - name: Run Adaptive Policy Enforcer
+        run: python adaptive_policy_enforcer.py
+
+      - name: Apply Kubernetes Policies
+        run: |
+          kubectl apply -f dynamic-policy.yaml -n default
+          kubectl get networkpolicy -n default
