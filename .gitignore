@@ -36,6 +36,5 @@ __pycache__/
 *.pyc
 
 # Ignore dynamic files
-dynamic-policy.yaml
 scan_results.json
 vulnerability_cache.json
