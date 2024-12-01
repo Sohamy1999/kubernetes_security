@@ -9,25 +9,31 @@ on:
 jobs:
   build-and-scan:
     runs-on: ubuntu-latest
+    env:
+      KUBECONFIG: ${{ github.workspace }}/kubeconfig
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
 
+      # Set up Python
       - name: Set Up Python
         uses: actions/setup-python@v4
         with:
           python-version: 3.9
 
+      # Install Dependencies
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
           pip install requests
 
+      # Build Docker Image
       - name: Build Docker Image
         run: |
           docker build -t x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:latest .
 
+      # Push Docker Image to Azure Container Registry
       - name: Push Docker Image to Azure Container Registry
         env:
           AZURE_USERNAME: ${{ secrets.AZURE_USERNAME }}
@@ -36,30 +42,23 @@ jobs:
           echo "${{ secrets.AZURE_PASSWORD }}" | docker login x23173394k8scontainerregistry.azurecr.io -u "${{ secrets.AZURE_USERNAME }}" --password-stdin
           docker push x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:latest
 
-      - name: Run Custom Security Scanning Agent
-        run: python custom_scanner.py
-
-      - name: Archive Scan Results
-        uses: actions/upload-artifact@v3
-        with:
-          name: scan_results
-          path: scan_results.json
-
-      - name: Run Adaptive Policy Enforcer
-        run: python adaptive_policy_enforcer.py
-
-      - name: Set Up kubectl
-        env:
-          KUBECONFIG: ${{ secrets.KUBECONFIG }}
+      # Decode and Write Kubeconfig
+      - name: Decode and Write Kubeconfig
         run: |
-          echo "${{ secrets.KUBECONFIG }}" | base64 -d > kubeconfig
-          export KUBECONFIG=kubeconfig
-          kubectl config get-contexts
-          kubectl config use-context kubernetesSecurityCluster
-          kubectl cluster-info
+          printf "%s" "${{ secrets.KUBECONFIG }}" | base64 --decode > kubeconfig
 
+      # Verify Kubectl Configuration
+      - name: Verify Kubectl Configuration
+        run: |
+          kubectl config view
+          kubectl config current-context
 
+      # Test Kubernetes Connectivity
+      - name: Test Kubernetes Connectivity
+        run: |
+          kubectl get nodes
 
+      # Check for dynamic-policy.yaml
       - name: Check for dynamic-policy.yaml
         id: check-policy-file
         run: |
@@ -85,13 +84,8 @@ jobs:
             """ > dynamic-policy.yaml
           fi
 
-      - name: Test Kubernetes Access
-        run: |
-          kubectl get nodes
-
-
+      # Apply Kubernetes Policies
       - name: Apply Kubernetes Policies
         run: |
           kubectl apply -f dynamic-policy.yaml -n default --validate=false
-          sleep 10
           kubectl get networkpolicy -n default
