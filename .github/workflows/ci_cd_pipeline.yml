@@ -29,7 +29,6 @@ jobs:
       - name: Validate Kubernetes Context
         run: |
           kubectl config get-contexts
-          kubectl config current-context
           kubectl get nodes
 
       # Build Docker Image
