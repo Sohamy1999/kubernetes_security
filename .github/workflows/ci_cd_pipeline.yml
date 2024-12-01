@@ -54,8 +54,13 @@ jobs:
         run: |
           echo "${{ secrets.KUBECONFIG }}" | base64 -d > kubeconfig
           export KUBECONFIG=kubeconfig
-          kubectl config use-context kubernetesSecurityCluster  # Replace with your Kubernetes context
-          kubectl cluster-info # Verify cluster connection
+          kubectl config set-context kubernetesSecurityCluster \
+            --cluster=kubernetesSecurityCluster \
+            --user=clusterUser_kubernetesSecurity_kubernetesSecurityCluster \
+            --namespace=default
+          kubectl config use-context kubernetesSecurityCluster
+          kubectl cluster-info
+
 
       - name: Check for dynamic-policy.yaml
         id: check-policy-file
