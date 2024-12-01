@@ -54,12 +54,10 @@ jobs:
         run: |
           echo "${{ secrets.KUBECONFIG }}" | base64 -d > kubeconfig
           export KUBECONFIG=kubeconfig
-          kubectl config set-context kubernetesSecurityCluster \
-            --cluster=kubernetesSecurityCluster \
-            --user=clusterUser_kubernetesSecurity_kubernetesSecurityCluster \
-            --namespace=default
+          kubectl config get-contexts
           kubectl config use-context kubernetesSecurityCluster
           kubectl cluster-info
+
 
 
       - name: Check for dynamic-policy.yaml
@@ -87,7 +85,13 @@ jobs:
             """ > dynamic-policy.yaml
           fi
 
+      - name: Test Kubernetes Access
+        run: |
+          kubectl get nodes
+
+
       - name: Apply Kubernetes Policies
         run: |
           kubectl apply -f dynamic-policy.yaml -n default --validate=false
+          sleep 10
           kubectl get networkpolicy -n default
