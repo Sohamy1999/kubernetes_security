@@ -11,23 +11,33 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Checkout code
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Set Up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: 3.9
-
-      - name: Install Dependencies
+      # Set up kubectl using KUBECONFIG from secrets
+      - name: Set Up kubectl
+        env:
+          KUBECONFIG: ${{ secrets.KUBECONFIG }}
         run: |
-          python -m pip install --upgrade pip
-          pip install requests
+          echo "${{ secrets.KUBECONFIG }}" | base64 -d > kubeconfig
+          export KUBECONFIG=kubeconfig
+          kubectl config use-context kubernetesSecurityCluster
+          kubectl cluster-info
 
+      # Validate Kubernetes context and connection
+      - name: Validate Kubernetes Context
+        run: |
+          kubectl config get-contexts
+          kubectl config current-context
+          kubectl get nodes
+
+      # Build Docker Image
       - name: Build Docker Image
         run: |
           docker build -t x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:latest .
 
+      # Push Docker Image to Azure Container Registry
       - name: Push Docker Image to Azure Container Registry
         env:
           AZURE_USERNAME: ${{ secrets.AZURE_USERNAME }}
@@ -36,53 +46,37 @@ jobs:
           echo "${{ secrets.AZURE_PASSWORD }}" | docker login x23173394k8scontainerregistry.azurecr.io -u "${{ secrets.AZURE_USERNAME }}" --password-stdin
           docker push x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:latest
 
+      # Run custom security scanning agent
       - name: Run Custom Security Scanning Agent
         run: python custom_scanner.py
 
+      # Archive scan results
       - name: Archive Scan Results
         uses: actions/upload-artifact@v3
         with:
           name: scan_results
           path: scan_results.json
 
+      # Run adaptive policy enforcer
       - name: Run Adaptive Policy Enforcer
         run: python adaptive_policy_enforcer.py
 
-      - name: Set Up kubectl
-        env:
-          KUBECONFIG: ${{ secrets.KUBECONFIG }}
-        run: |
-          echo "${{ secrets.KUBECONFIG }}" | base64 -d > kubeconfig
-          export KUBECONFIG=kubeconfig
-          kubectl config use-context kubernetesSecurityCluster  # Replace with your Kubernetes context
-          kubectl cluster-info # Verify cluster connection
-
-      - name: Check for dynamic-policy.yaml
-        id: check-policy-file
-        run: |
-          if [ -f dynamic-policy.yaml ]; then
-            echo "Policy file exists."
-          else
-            echo "Policy file does not exist. Creating default policy..."
-            echo """
-            apiVersion: networking.k8s.io/v1
-            kind: NetworkPolicy
-            metadata:
-              name: allow-all-traffic
-              namespace: default
-            spec:
-              podSelector: {}
-              policyTypes:
-              - Ingress
-              - Egress
-              ingress:
-              - {}
-              egress:
-              - {}
-            """ > dynamic-policy.yaml
-          fi
-
+      # Apply Kubernetes policies
       - name: Apply Kubernetes Policies
         run: |
           kubectl apply -f dynamic-policy.yaml -n default --validate=false
+          sleep 10  # Wait for Kubernetes to process the policy
           kubectl get networkpolicy -n default
+          kubectl describe networkpolicy allow-all-traffic -n default
+
+      # Debug network policies
+      - name: Debug Network Policies
+        run: |
+          kubectl get networkpolicy -A
+          kubectl describe networkpolicy -n default
+
+      # Check permissions
+      - name: Verify Permissions
+        run: |
+          kubectl auth can-i create networkpolicy -n default
+          kubectl auth can-i get networkpolicy -n default
