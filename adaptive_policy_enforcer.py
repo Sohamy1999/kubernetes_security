@@ -16,11 +16,12 @@ PACKAGE_SEVERITY_MAP = {
 
 def load_scan_results():
     """
-    Load scan results from a JSON file.
+    Load scan results from a JSON file and extract the scan_results key.
     """
     try:
         with open(SCAN_RESULTS_FILE, "r") as file:
-            return json.load(file)
+            data = json.load(file)
+            return data.get("scan_results", [])
     except FileNotFoundError:
         print(f"Scan results file '{SCAN_RESULTS_FILE}' not found.")
         return []

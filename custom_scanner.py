@@ -24,8 +24,13 @@ def save_cache(cache):
         json.dump(cache, file, indent=4)
 
 def save_results(results):
+    # Add the latest updated timestamp
+    results_metadata = {
+        "last_updated": datetime.now().isoformat(),
+        "scan_results": results
+    }
     with open(RESULTS_FILE, "w") as file:
-        json.dump(results, file, indent=4)
+        json.dump(results_metadata, file, indent=4)
 
 # Remove duplicate vulnerabilities
 def remove_duplicates(vulnerabilities):
