@@ -43,7 +43,7 @@ jobs:
 
       - name: Enforce Adaptive Policies
         run: |
-          python adaptive_policy_enforcement.py
+          python adaptive_policy_enforcer.py
 
       - name: Decode and Write Kubeconfig
         run: |
