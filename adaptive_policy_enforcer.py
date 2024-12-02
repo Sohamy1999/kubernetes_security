@@ -1,8 +1,18 @@
 import json
 import subprocess
+from datetime import datetime
 
 # Path to the scan results file
 SCAN_RESULTS_FILE = "scan_results.json"
+
+# Severity fallback for important packages
+PACKAGE_SEVERITY_MAP = {
+    "openssl": "HIGH",
+    "systemd": "HIGH",
+    "util-linux": "MEDIUM",
+    "gzip": "MEDIUM",
+    "tar": "MEDIUM",
+}
 
 def load_scan_results():
     """
@@ -18,12 +28,41 @@ def load_scan_results():
         print(f"Error decoding JSON from '{SCAN_RESULTS_FILE}'.")
         return []
 
+def determine_severity(vulnerability):
+    """
+    Determine severity based on fallback criteria.
+    """
+    description = vulnerability.get("description", "").lower()
+    package_name = vulnerability.get("package", "").lower()
+    
+    # Check description for critical keywords
+    high_keywords = ["remote code execution", "privilege escalation", "arbitrary code execution", "critical"]
+    medium_keywords = ["denial of service", "out-of-bounds", "information disclosure", "memory corruption"]
+
+    if any(keyword in description for keyword in high_keywords):
+        return "HIGH"
+    elif any(keyword in description for keyword in medium_keywords):
+        return "MEDIUM"
+    
+    # Fallback to predefined package severity
+    return PACKAGE_SEVERITY_MAP.get(package_name, "LOW")
+
+def enrich_with_severity(scan_results):
+    """
+    Enrich scan results with computed severity based on custom logic.
+    """
+    for vulnerability in scan_results:
+        if vulnerability.get("severity") == "UNKNOWN":
+            vulnerability["severity"] = determine_severity(vulnerability)
+    return scan_results
+
 def analyze_scan_results(scan_results):
     """
     Filter scan results to find vulnerabilities with CRITICAL or HIGH severity.
     """
+    enriched_results = enrich_with_severity(scan_results)
     critical_vulnerabilities = [
-        vuln for vuln in scan_results if vuln["severity"] in ["CRITICAL", "HIGH"]
+        vuln for vuln in enriched_results if vuln["severity"] in ["CRITICAL", "HIGH"]
     ]
     return critical_vulnerabilities
 
@@ -70,30 +109,6 @@ def apply_namespace_label():
         print("Pod Security Admission policy applied successfully.")
     except subprocess.CalledProcessError as e:
         print(f"Failed to apply Pod Security Admission policy: {e}")
-
-def generate_default_policy():
-    """
-    Generate a default permissive policy if no critical vulnerabilities are found.
-    """
-    default_policy_yaml = """
-    apiVersion: networking.k8s.io/v1
-    kind: NetworkPolicy
-    metadata:
-      name: allow-all-traffic
-      namespace: default
-    spec:
-      podSelector: {}
-      policyTypes:
-      - Ingress
-      - Egress
-      ingress:
-      - {}
-      egress:
-      - {}
-    """
-    with open("dynamic-policy.yaml", "w") as file:
-        file.write(default_policy_yaml)
-    print("Default permissive policy generated.")
 
 def generate_policy_yaml(policy_type, vulnerability, label_value):
     """
@@ -171,11 +186,11 @@ def enforce_policies(vulnerabilities):
                 apply_policy(resource_quota_yaml, "resource_quota")
 
         # Apply Pod Security Admission policy
-        apply_namespace_label(vulnerabilities[0])
+        apply_namespace_label()
 
     else:
         print("No critical vulnerabilities found. Skipping policy generation and application.")
-        # Generate a minimal valid placeholder policy to prevent pipeline errors
+        # Generate a placeholder policy to prevent errors
         placeholder_policy = """
         apiVersion: networking.k8s.io/v1
         kind: NetworkPolicy
@@ -189,7 +204,6 @@ def enforce_policies(vulnerabilities):
             file.write(placeholder_policy)
         print("Placeholder policy created to prevent pipeline errors.")
 
-
 def run_policy_enforcement():
     """
     Main workflow to load scan results, analyze vulnerabilities, and enforce policies.
@@ -199,7 +213,6 @@ def run_policy_enforcement():
 
     if not scan_results:
         print("No scan results available. Exiting.")
-        generate_default_policy()
         return
 
     critical_vulnerabilities = analyze_scan_results(scan_results)

@@ -17,5 +17,17 @@ spec:
         image: x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:latest
         ports:
         - containerPort: 8081
+        readinessProbe:
+          httpGet:
+            path: /hello
+            port: 8081
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /hello
+            port: 8081
+          initialDelaySeconds: 10
+          periodSeconds: 15
       imagePullSecrets:
       - name: acr-secret
