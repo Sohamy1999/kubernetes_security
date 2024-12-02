@@ -82,7 +82,16 @@ def extract_packages_from_image(image_name):
         cmd = f"docker run --rm --entrypoint bash {sanitized_image_name} -c \"dpkg-query -W -f='${{Package}}=${{Version}}\\n'\""
         result = subprocess.check_output(cmd, shell=True, text=True)
         print(f"dpkg-query output:\n{result}")  # Log the raw output for debugging
-        packages = [line.strip().split("=") for line in result.strip().split("\n") if line.strip()]
+
+        # Parse and sanitize output
+        packages = []
+        for line in result.strip().split("\n"):
+            if "=" in line:  # Only consider lines with `=` separating package and version
+                parts = line.strip().split("=")
+                if len(parts) == 2 and all(parts):  # Ensure both package and version are non-empty
+                    packages.append(parts)
+        if not packages:
+            print("No valid packages found in the image.")
         return packages
     except subprocess.CalledProcessError as e:
         print(f"Error extracting packages: {e}")
