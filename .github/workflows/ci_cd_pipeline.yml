@@ -37,6 +37,15 @@ jobs:
           echo "${{ secrets.AZURE_PASSWORD }}" | docker login x23173394k8scontainerregistry.azurecr.io -u "${{ secrets.AZURE_USERNAME }}" --password-stdin
           docker push x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:latest
 
+      - name: Pull Docker Image
+        run: docker pull x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:latest
+
+      - name: Check Docker Version
+        run: docker --version
+
+      - name: List Docker Images
+        run: docker images
+
       - name: Run Custom Scanner
         run: |
           python custom_scanner.py
