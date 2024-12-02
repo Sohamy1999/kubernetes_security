@@ -44,7 +44,7 @@ jobs:
       - name: Pull and Validate Docker Image
         run: |
           docker pull x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:${{ env.TAG }}
-          docker run --rm --entrypoint bash x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:${{ env.TAG }} -c "dpkg-query -W" || echo "Failed to retrieve installed packages. Please check the base image."
+          docker run --rm --entrypoint bash x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:${{ env.TAG }} -c "dpkg-query -W"
 
       - name: Update Deployment YAML with New Image Tag
         run: |
@@ -71,11 +71,14 @@ jobs:
         run: |
           kubectl apply -f dynamic-policy.yaml
 
+      - name: Apply Network Policy
+        run: kubectl apply -f network-policy.yaml
+
       - name: Deploy Application
         run: |
           kubectl apply -f deployment.yaml
           kubectl apply -f service.yaml
-        
+
       - name: Verify Applied Policies
         run: |
           echo "Verifying applied policies..."
