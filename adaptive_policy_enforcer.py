@@ -14,6 +14,13 @@ PACKAGE_SEVERITY_MAP = {
     "tar": "MEDIUM",
 }
 
+def sanitize_name(name):
+    """
+    Sanitize the name to comply with Kubernetes naming rules.
+    Convert to lowercase and replace invalid characters with '-'.
+    """
+    return name.lower().replace(":", "-").replace("/", "-")
+
 def load_scan_results():
     """
     Load scan results from a JSON file and extract the scan_results key.
@@ -89,7 +96,7 @@ def label_pod(vulnerability, pod_name):
     """
     try:
         label_key = "vulnerability"
-        label_value = vulnerability['package'].replace('.', '-')
+        label_value = sanitize_name(vulnerability['cve_id'])
 
         print(f"Labeling pod '{pod_name}' with label '{label_key}={label_value}'...")
         subprocess.run(["kubectl", "label", "pods", pod_name, f"{label_key}={label_value}", "--overwrite"], check=True)
@@ -115,17 +122,19 @@ def generate_policy_yaml(policy_type, vulnerability, label_value):
     """
     Generate YAML for a specified policy type (network policy, resource quota).
     """
+    sanitized_label_value = sanitize_name(label_value)
+
     if policy_type == "network":
         return f"""
         apiVersion: networking.k8s.io/v1
         kind: NetworkPolicy
         metadata:
-          name: block-external-traffic-{label_value}
+          name: block-external-traffic-{sanitized_label_value}
           namespace: default
         spec:
           podSelector:
             matchLabels:
-              vulnerability: {label_value}
+              vulnerability: {sanitized_label_value}
           policyTypes:
           - Ingress
           ingress: []
@@ -135,7 +144,7 @@ def generate_policy_yaml(policy_type, vulnerability, label_value):
         apiVersion: v1
         kind: ResourceQuota
         metadata:
-          name: restrict-resource-usage-{label_value}
+          name: restrict-resource-usage-{sanitized_label_value}
           namespace: default
         spec:
           hard:
@@ -172,7 +181,7 @@ def enforce_policies(vulnerabilities):
             return
 
         for vulnerability in vulnerabilities:
-            label_value = vulnerability['package'].replace('.', '-')
+            label_value = sanitize_name(vulnerability.get('cve_id', 'unknown'))
             for pod_name in affected_pods:
                 label_pod(vulnerability, pod_name)
 

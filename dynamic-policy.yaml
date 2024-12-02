@@ -2,7 +2,7 @@
         apiVersion: v1
         kind: ResourceQuota
         metadata:
-          name: restrict-resource-usage-util-linux
+          name: restrict-resource-usage-cve-2024-9143
           namespace: default
         spec:
           hard:
