@@ -5,7 +5,7 @@ import time
 
 # Constants
 CACHE_FILE = "vulnerability_cache.json"
-RESULTS_FILE = "scan_results.json"  # Output file for vulnerabilities storage
+RESULTS_FILE = "scan_results.json"  # Output file for vulnerabilities
 MAX_RETRIES = 3
 NVD_API_BASE_URL = "https://services.nvd.nist.gov/rest/json/cve/1.0/"
 

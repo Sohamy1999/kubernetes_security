@@ -41,7 +41,7 @@ jobs:
         run: |
           echo "${{ secrets.AZURE_PASSWORD }}" | docker login x23173394k8scontainerregistry.azurecr.io -u "${{ secrets.AZURE_USERNAME }}" --password-stdin
           docker push x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:latest
-
+          
       # Decode and Write Kubeconfig
       - name: Decode and Write Kubeconfig
         run: |
