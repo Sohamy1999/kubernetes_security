@@ -12,9 +12,11 @@ spec:
       labels:
         app: k8ssecframework
     spec:
+      securityContext:  # Pod-level security context
+        fsGroup: 2000
       containers:
       - name: k8ssecframework
-        image: x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:latest # This is dynamically updated during CI/CD
+        image: x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:latest
         ports:
         - containerPort: 8081
         readinessProbe:
@@ -36,10 +38,9 @@ spec:
           requests:
             memory: "256Mi"
             cpu: "250m"
-        securityContext:
+        securityContext:  # Container-level security context
           runAsUser: 1000
           runAsGroup: 3000
-          fsGroup: 2000
           readOnlyRootFilesystem: true
           allowPrivilegeEscalation: false
       imagePullSecrets:
