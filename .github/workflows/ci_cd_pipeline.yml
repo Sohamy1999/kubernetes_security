@@ -25,9 +25,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests
 
+      - name: Generate Unique Image Tag
+        id: generate-tag
+        run: echo "TAG=$(date +%Y%m%d%H%M%S)-${{ github.sha }}" >> $GITHUB_ENV
+
       - name: Build Docker Image
         run: |
-          docker build -t x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:latest .
+          docker build -t x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:${{ env.TAG }} .
 
       - name: Push Docker Image to Azure Container Registry
         env:
@@ -35,16 +39,14 @@ jobs:
           AZURE_PASSWORD: ${{ secrets.AZURE_PASSWORD }}
         run: |
           echo "${{ secrets.AZURE_PASSWORD }}" | docker login x23173394k8scontainerregistry.azurecr.io -u "${{ secrets.AZURE_USERNAME }}" --password-stdin
-          docker push x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:latest
+          docker push x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:${{ env.TAG }}
 
       - name: Pull Docker Image
-        run: docker pull x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:latest
+        run: docker pull x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:${{ env.TAG }}
 
-      - name: Check Docker Version
-        run: docker --version
-
-      - name: List Docker Images
-        run: docker images
+      - name: Update Deployment YAML with New Image Tag
+        run: |
+          sed -i "s|image: .*|image: x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:${{ env.TAG }}|" deployment.yaml
 
       - name: Run Custom Scanner
         run: |

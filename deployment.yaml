@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: k8ssecframework
-        image: x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:latest
+        image: x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:latest # This is dynamically updated during CI/CD
         ports:
         - containerPort: 8081
         readinessProbe:
