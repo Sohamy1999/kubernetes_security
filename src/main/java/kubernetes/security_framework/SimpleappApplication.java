@@ -12,6 +12,8 @@ public class SimpleappApplication {
     }
 }
 
+//just a comment
+
 @RestController
 class HelloController {
     @GetMapping("/hello")
