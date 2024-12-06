@@ -12,12 +12,12 @@ public class SimpleappApplication {
     }
 }
 
-//just a comment for new comment
+//Another attempt
 
 @RestController
 class HelloController {
     @GetMapping("/hello")
     public String hello() {
-        return "Hello, Spring Boot!";
+        return "Hello, Spring Boot! Welcome to update!!";
     }
 }
