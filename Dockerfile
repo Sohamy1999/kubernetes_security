@@ -1,5 +1,5 @@
-# Use a Debian-based OpenJDK image with package manager support
-FROM openjdk:17-jdk
+# Use a Debian-based OpenJDK image with apt-get support
+FROM openjdk:17-buster
 
 # Install dpkg and other required tools
 RUN apt-get update && apt-get install -y \
