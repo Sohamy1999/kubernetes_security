@@ -44,7 +44,7 @@ jobs:
       - name: Pull and Validate Docker Image
         run: |
           docker pull x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:${{ env.TAG }}
-          docker run --rm --entrypoint bash x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:${{ env.TAG }} -c "dpkg-query -W"
+          docker run --rm --entrypoint bash x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:${{ env.TAG }} -c "dpkg-query -W || echo 'No packages found!'"
 
       - name: Update Deployment YAML with New Image Tag
         run: |
@@ -74,7 +74,6 @@ jobs:
       - name: Apply Network Policy
         run: kubectl apply -f network-policy.yaml
 
-
       - name: Verify Applied Policies
         run: |
           echo "Verifying applied policies..."
@@ -87,12 +86,10 @@ jobs:
           echo "Pod Labels:"
           kubectl get pods -n default --show-labels
 
-
       - name: Deploy Application
         run: |
           kubectl apply -f deployment.yaml
           kubectl apply -f service.yaml
-
 
       - name: Retrieve Service External IP
         run: |

@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: k8ssecframework-deployment
+  labels:
+    app: k8ssecframework
 spec:
   replicas: 2
   selector:
@@ -14,6 +16,7 @@ spec:
     spec:
       securityContext:  # Pod-level security context
         fsGroup: 2000
+        runAsNonRoot: true
       containers:
       - name: k8ssecframework
         image: x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:latest
@@ -43,5 +46,24 @@ spec:
           runAsGroup: 3000
           readOnlyRootFilesystem: true
           allowPrivilegeEscalation: false
+        env:  # Environment variables (add if needed for dynamic configuration)
+        - name: APP_ENV
+          value: "production"
+        - name: APP_DEBUG
+          value: "false"
       imagePullSecrets:
       - name: acr-secret
+      tolerations:  # Ensure deployment is not affected by node taints
+      - key: "node-role.kubernetes.io/control-plane"
+        effect: NoSchedule
+      - key: "CriticalAddonsOnly"
+        operator: "Exists"
+      affinity:  # Add node affinity for better placement
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/os
+                operator: In
+                values:
+                - linux
