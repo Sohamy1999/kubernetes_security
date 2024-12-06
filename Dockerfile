@@ -1,5 +1,5 @@
 # Use a Debian-based OpenJDK image with package manager support
-FROM openjdk:17-jdk-slim
+FROM openjdk:17-jdk
 
 # Install dpkg and other required tools
 RUN apt-get update && apt-get install -y \
