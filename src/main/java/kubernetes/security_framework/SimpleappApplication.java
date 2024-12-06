@@ -12,7 +12,7 @@ public class SimpleappApplication {
     }
 }
 
-//just a comment
+//just a comment for new comment
 
 @RestController
 class HelloController {
