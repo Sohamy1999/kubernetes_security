@@ -50,6 +50,14 @@ jobs:
         run: |
           sed -i "s|image: .*|image: x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:${{ env.TAG }}|" deployment.yaml
 
+      - name: Commit Updated Deployment YAML
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add deployment.yaml
+          git commit -m "Update deployment YAML with new image tag"
+          git push
+
       - name: Run Custom Scanner
         run: |
           python custom_scanner.py
@@ -77,13 +85,9 @@ jobs:
       - name: Verify Applied Policies
         run: |
           echo "Verifying applied policies..."
-          echo "Network Policies:"
           kubectl get networkpolicy -n default
-          echo "Resource Quotas:"
           kubectl get resourcequota -n default
-          echo "Namespace Labels:"
           kubectl get namespace default --show-labels
-          echo "Pod Labels:"
           kubectl get pods -n default --show-labels
 
       - name: Deploy Application

@@ -14,24 +14,25 @@ spec:
       labels:
         app: k8ssecframework
     spec:
-      securityContext:  # Pod-level security context
+      securityContext:
         fsGroup: 2000
         runAsNonRoot: true
       containers:
       - name: k8ssecframework
-        image: x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:latest
+        image: x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:${TAG}
+        imagePullPolicy: Always
         ports:
-        - containerPort: 8081
+        - containerPort: 8082
         readinessProbe:
           httpGet:
             path: /hello
-            port: 8081
+            port: 8082
           initialDelaySeconds: 5
           periodSeconds: 10
         livenessProbe:
           httpGet:
             path: /hello
-            port: 8081
+            port: 8082
           initialDelaySeconds: 10
           periodSeconds: 15
         resources:
@@ -41,24 +42,19 @@ spec:
           requests:
             memory: "256Mi"
             cpu: "250m"
-        securityContext:  # Container-level security context
+        securityContext:
           runAsUser: 1000
           runAsGroup: 3000
           readOnlyRootFilesystem: true
           allowPrivilegeEscalation: false
-        env:  # Environment variables (add if needed for dynamic configuration)
-        - name: APP_ENV
-          value: "production"
-        - name: APP_DEBUG
-          value: "false"
       imagePullSecrets:
       - name: acr-secret
-      tolerations:  # Ensure deployment is not affected by node taints
+      tolerations:
       - key: "node-role.kubernetes.io/control-plane"
         effect: NoSchedule
       - key: "CriticalAddonsOnly"
         operator: "Exists"
-      affinity:  # Add node affinity for better placement
+      affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
