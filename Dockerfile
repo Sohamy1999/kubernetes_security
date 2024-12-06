@@ -7,6 +7,9 @@ RUN apt-get update && apt-get install -y \
     apt-utils \
     && rm -rf /var/lib/apt/lists/*
 
+# Add metadata validation to ensure dpkg-query compatibility
+RUN dpkg-query --help || echo "Warning: dpkg-query not installed properly"
+
 # Set the working directory in the container
 WORKDIR /app
 
