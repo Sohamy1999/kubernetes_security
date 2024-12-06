@@ -5,10 +5,7 @@ FROM openjdk:17-jdk
 RUN apt-get update && apt-get install -y \
     dpkg \
     apt-utils \
-    && rm -rf /var/lib/apt/lists/*
-
-# Add metadata validation to ensure dpkg-query compatibility
-RUN dpkg-query --help || echo "Warning: dpkg-query not installed properly"
+    && rm -rf /var/lib/apt/lists/  # Do not remove /var/lib/dpkg
 
 # Set the working directory in the container
 WORKDIR /app
