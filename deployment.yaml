@@ -19,7 +19,7 @@ spec:
         runAsNonRoot: true
       containers:
       - name: k8ssecframework
-        image: x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:${TAG}
+        image: x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:20241207023643-24e5c4b852a8a9ddd4e3bbbe3590e52c9da8be0c
         imagePullPolicy: Always
         ports:
         - containerPort: 8081
