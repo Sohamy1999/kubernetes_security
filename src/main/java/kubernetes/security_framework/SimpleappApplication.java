@@ -18,6 +18,6 @@ public class SimpleappApplication {
 class HelloController {
     @GetMapping("/hello")
     public String hello() {
-        return "Hello, Spring Boot! Welcome to update 2!!";
+        return "Hello,! Welcome to update 2!!";
     }
 }
