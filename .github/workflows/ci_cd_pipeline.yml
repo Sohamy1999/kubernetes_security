@@ -41,6 +41,15 @@ jobs:
           echo "${{ secrets.AZURE_PASSWORD }}" | docker login x23173394k8scontainerregistry.azurecr.io -u "${{ secrets.AZURE_USERNAME }}" --password-stdin
           docker push x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:${{ env.TAG }}
 
+      - name: Remove Old Docker Images
+        run: docker rmi $(docker images -f "dangling=true" -q) || true
+
+      - name: Test Application Locally
+        run: |
+          docker run --rm -p 8082:8081 x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:${{ env.TAG }} &
+          sleep 5  # Give the container time to start
+          curl http://localhost:8082/hello
+
       - name: Pull and Validate Docker Image
         run: |
           docker pull x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:${{ env.TAG }}
@@ -62,12 +71,10 @@ jobs:
           git push
 
       - name: Run Custom Scanner
-        run: |
-          python custom_scanner.py
+        run: python custom_scanner.py
 
       - name: Enforce Adaptive Policies
-        run: |
-          python adaptive_policy_enforcer.py
+        run: python adaptive_policy_enforcer.py
 
       - name: Decode and Write Kubeconfig
         run: |
@@ -79,19 +86,10 @@ jobs:
           kubectl config current-context
 
       - name: Apply Kubernetes Policies
-        run: |
-          kubectl apply -f dynamic-policy.yaml
+        run: kubectl apply -f dynamic-policy.yaml
 
       - name: Apply Network Policy
         run: kubectl apply -f network-policy.yaml
-
-      - name: Verify Applied Policies
-        run: |
-          echo "Verifying applied policies..."
-          kubectl get networkpolicy -n default
-          kubectl get resourcequota -n default
-          kubectl get namespace default --show-labels
-          kubectl get pods -n default --show-labels
 
       - name: Deploy Application
         run: |
