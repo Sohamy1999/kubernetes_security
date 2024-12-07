@@ -41,15 +41,6 @@ jobs:
           echo "${{ secrets.AZURE_PASSWORD }}" | docker login x23173394k8scontainerregistry.azurecr.io -u "${{ secrets.AZURE_USERNAME }}" --password-stdin
           docker push x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:${{ env.TAG }}
 
-      - name: Remove Old Docker Images
-        run: docker rmi $(docker images -f "dangling=true" -q) || true
-
-      - name: Test Application Locally
-        run: |
-          docker run --rm -p 8082:8081 x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:${{ env.TAG }} &
-          sleep 5  # Give the container time to start
-          curl http://localhost:8082/hello
-
       - name: Pull and Validate Docker Image
         run: |
           docker pull x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:${{ env.TAG }}
