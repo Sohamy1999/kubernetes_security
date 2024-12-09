@@ -82,7 +82,7 @@ jobs:
       - name: Verify Kubectl Configuration
         run: |
           kubectl config view
-          kubectl config get-context
+          kubectl get context
 
       # Step 7: Update deloyment yaml
       - name: Update Deployment YAML with New Image Tag
