@@ -12,27 +12,33 @@ jobs:
     env:
       KUBECONFIG: ${{ github.workspace }}/kubeconfig
     steps:
+      # Step 1: Checkout Code
       - name: Checkout Code
         uses: actions/checkout@v3
 
+      # Step 2: Set Up Python
       - name: Set Up Python
         uses: actions/setup-python@v4
         with:
           python-version: 3.9
 
+      # Step 3: Install Dependencies
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
           pip install requests
 
+      # Step 4: Generate Unique Image Tag
       - name: Generate Unique Image Tag
         id: generate-tag
         run: echo "TAG=$(date +%Y%m%d%H%M%S)-${{ github.sha }}" >> $GITHUB_ENV
 
+      # Step 5: Build Docker Image
       - name: Build Docker Image
         run: |
           docker build -t x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:${{ env.TAG }} .
 
+      # Step 6: Push Docker Image to Azure Container Registry
       - name: Push Docker Image to Azure Container Registry
         env:
           AZURE_USERNAME: ${{ secrets.AZURE_USERNAME }}
@@ -41,57 +47,74 @@ jobs:
           echo "${{ secrets.AZURE_PASSWORD }}" | docker login x23173394k8scontainerregistry.azurecr.io -u "${{ secrets.AZURE_USERNAME }}" --password-stdin
           docker push x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:${{ env.TAG }}
 
+      # Step 7: Pull and Validate Docker Image
       - name: Pull and Validate Docker Image
         run: |
           docker pull x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:${{ env.TAG }}
-          docker run --rm --entrypoint bash x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:${{ env.TAG }} -c "dpkg-query -W || echo 'No packages found!'"
+          docker run --rm --entrypoint bash x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:${{ env.TAG }} -c "dpkg-query -W || echo 'No packages found'"
 
-      - name: Update Deployment YAML with New Image Tag
-        run: |
-          sed -i "s|image: .*|image: x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:${{ env.TAG }}|" deployment.yaml
-
-      - name: Commit Updated Deployment YAML
-        env:
-          GH_PAT: ${{ secrets.GH_PAT }}
-        run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-          git remote set-url origin https://x-access-token:${GH_PAT}@github.com/${{ github.repository }}
-          git add deployment.yaml
-          git commit -m "Update deployment YAML with new image tag"
-          git push
-
-      - name: Deploy Application
-        run: |
-          kubectl apply -f deployment.yaml
-          kubectl apply -f service.yaml
-        
+      # Step 8: Run Custom Scanner
       - name: Run Custom Scanner
-        run: python custom_scanner.py
+        run: |
+          python custom_scanner.py
 
+      # Step 9: Print Vulnerabilities from Scan Results
+      - name: Print Vulnerabilities
+        run: |
+          if [ -f scan_results.json ]; then
+            echo "Vulnerabilities found in the scan:"
+            cat scan_results.json | jq .
+          else
+            echo "No scan results found."
+          fi
+
+      # Step 10: Enforce Adaptive Policies
       - name: Enforce Adaptive Policies
-        run: python adaptive_policy_enforcer.py
+        run: |
+          python adaptive_policy_enforcer.py
 
+      # Step 11: Decode and Write Kubeconfig
       - name: Decode and Write Kubeconfig
         run: |
           printf "%s" "${{ secrets.KUBECONFIG }}" | base64 --decode > kubeconfig
 
+      # Step 12: Verify Kubectl Configuration
       - name: Verify Kubectl Configuration
         run: |
           kubectl config view
-          kubectl config current-context
+          kubectl config get-context
 
-      - name: Apply Kubernetes Policies
-        run: kubectl apply -f dynamic-policy.yaml
+      # Step 7: Update deloyment yaml
+      - name: Update Deployment YAML with New Image Tag
+        run: |
+          sed -i "s|image: .*|image: x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:${{ env.TAG }}|" deployment.yaml
 
-      - name: Apply Network Policy
-        run: kubectl apply -f network-policy.yaml
-
+      # Step 13: Apply deployment    
       - name: Deploy Application
         run: |
           kubectl apply -f deployment.yaml
-          kubectl apply -f service.yaml
+          kubectl apply -f service.yaml    
 
+      # Step 14: Set Deployment to Use the New Image
+      - name: Update Kubernetes Deployment Image
+        run: |
+          kubectl set image deployment/k8ssecframework-deployment k8ssecframework=x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:${{ env.TAG }}
+
+      
+      # Step 14: Verify applied policies
+      - name: Verify Applied Policies
+        run: |
+          echo "Verifying applied policies..."
+          echo "Network Policies:"
+          kubectl get networkpolicy -n default
+          echo "Resource Quotas:"
+          kubectl get resourcequota -n default
+          echo "Namespace Labels:"
+          kubectl get namespace default --show-labels
+          echo "Pod Labels:"
+          kubectl get pods -n default --show-labels    
+
+      # Step 15: Retrieve Service External IP
       - name: Retrieve Service External IP
         run: |
           EXTERNAL_IP=$(kubectl get service k8ssecframework-service -o jsonpath='{.status.loadBalancer.ingress[0].ip}')

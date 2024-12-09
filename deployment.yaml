@@ -19,7 +19,7 @@ spec:
         runAsNonRoot: true
       containers:
       - name: k8ssecframework
-        image: x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:${TAG}
+        image: x23173394k8scontainerregistry.azurecr.io/kubernetes-security-framework:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8081
@@ -32,7 +32,7 @@ spec:
         livenessProbe:
           httpGet:
             path: /hello
-            port: 8082
+            port: 8081
           initialDelaySeconds: 10
           periodSeconds: 15
         resources:
@@ -45,13 +45,19 @@ spec:
         securityContext:
           runAsUser: 1000
           runAsGroup: 3000
-          readOnlyRootFilesystem: true
+          readOnlyRootFilesystem: false
           allowPrivilegeEscalation: false
           capabilities:
             drop:
             - ALL
           seccompProfile:
             type: RuntimeDefault
+        volumeMounts:
+        - mountPath: /tmp
+          name: temp-dir
+      volumes:
+      - name: temp-dir
+        emptyDir: {}
       imagePullSecrets:
       - name: acr-secret
       tolerations:
