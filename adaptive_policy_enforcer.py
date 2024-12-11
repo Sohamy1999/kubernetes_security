@@ -30,10 +30,10 @@ def load_scan_results():
             data = json.load(file)
             return data.get("scan_results", [])
     except FileNotFoundError:
-        print(f"Scan results file '{SCAN_RESULTS_FILE}' not found. Please ensure it is present in the folder.")
+        print(f"Scan results file '{SCAN_RESULTS_FILE}' not found.")
         return []
     except json.JSONDecodeError:
-        print(f"Error decoding JSON from '{SCAN_RESULTS_FILE}'. Please check the file format.")
+        print(f"Error decoding JSON from '{SCAN_RESULTS_FILE}'.")
         return []
 
 def determine_severity(vulnerability):
@@ -42,7 +42,7 @@ def determine_severity(vulnerability):
     """
     description = vulnerability.get("description", "").lower()
     package_name = vulnerability.get("package", "").lower()
-
+    
     # Check description for critical keywords
     high_keywords = ["remote code execution", "privilege escalation", "arbitrary code execution", "critical"]
     medium_keywords = ["denial of service", "out-of-bounds", "information disclosure", "memory corruption"]
@@ -51,7 +51,7 @@ def determine_severity(vulnerability):
         return "HIGH"
     elif any(keyword in description for keyword in medium_keywords):
         return "MEDIUM"
-
+    
     # Fallback to predefined package severity
     return PACKAGE_SEVERITY_MAP.get(package_name, "LOW")
 
