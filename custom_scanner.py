@@ -44,16 +44,13 @@ def evaluate_severity_from_description(description):
     """
     high_keywords = ["remote code execution", "privilege escalation", "arbitrary code execution", "critical"]
     medium_keywords = ["denial of service", "out-of-bounds", "information disclosure", "memory corruption"]
-
     description = description.lower()
-
     if any(keyword in description for keyword in high_keywords):
         return "HIGH"
     elif any(keyword in description for keyword in medium_keywords):
         return "MEDIUM"
     else:
         return "LOW"
-
 def fallback_severity_by_package(package_name):
     """
     Determine severity based on package importance.
@@ -67,7 +64,6 @@ def fallback_severity_by_package(package_name):
         # Add more packages as necessary
     }
     return package_importance.get(package_name, "LOW")
-
 def determine_severity(vulnerability):
     """
     Determine severity using description and package importance.
@@ -76,7 +72,6 @@ def determine_severity(vulnerability):
     if severity == "LOW":  # If description analysis yields low, fallback to package importance
         severity = fallback_severity_by_package(vulnerability["package"])
     return severity
-
 # Generate fallback CVE data
 def generate_fallback_cve(package_name, version):
     return {
@@ -86,7 +81,6 @@ def generate_fallback_cve(package_name, version):
         "cvss_score": "N/A",
         "severity": fallback_severity_by_package(package_name),
     }
-
 # Enrich vulnerability data using NVD API
 def enrich_with_nvd(cve_id, package_name, version):
     url = f"{NVD_API_BASE_URL}?cveId={cve_id}&apiKey={API_KEY}"
@@ -105,14 +99,12 @@ def enrich_with_nvd(cve_id, package_name, version):
                     
                     print(f"Enriched CVE {cve_id}: CVSS Score={cvss_score}, Severity={severity}")
                     return cvss_score, severity, published_date
-
             elif response.status_code in [429, 503]:
                 print(f"NVD API unavailable for {cve_id}. Retrying ({attempt + 1}/{MAX_RETRIES})...")
                 time.sleep(2 ** attempt)
             else:
                 print(f"Unexpected response from NVD API for {cve_id}: {response.status_code}")
                 break
-
         except requests.exceptions.RequestException as e:
             print(f"NVD API request failed for {cve_id}: {e}. Retrying ({attempt + 1}/{MAX_RETRIES})...")
             time.sleep(2 ** attempt)
@@ -158,7 +150,6 @@ def check_vulnerabilities(packages, cache):
         print(f"Checking vulnerabilities for package: {package_name}, version: {version}...")
         cve_list = [{"id": "N/A"}]  # Placeholder for CVE fetch
         vulnerabilities = []
-
         for cve in cve_list:
             cve_id = cve["id"]
             cvss_score, severity, published_date = enrich_with_nvd(cve_id, package_name, version)
@@ -168,7 +159,6 @@ def check_vulnerabilities(packages, cache):
                     "package": package_name,
                     "description": cve.get("description", "N/A")
                 })
-
             vulnerabilities.append({
                 "package": package_name,
                 "version": version,
@@ -178,7 +168,6 @@ def check_vulnerabilities(packages, cache):
                 "description": cve.get("description", "N/A"),
                 "published_date": published_date,
             })
-
         cache[cache_key] = vulnerabilities
         all_vulnerabilities.extend(vulnerabilities)
 
