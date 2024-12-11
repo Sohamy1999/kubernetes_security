@@ -5,23 +5,10 @@ import time
 from datetime import datetime
 
 # Constants
-CACHE_FILE = "vulnerability_cache.json"
 RESULTS_FILE = "scan_results.json"
 MAX_RETRIES = 3
 API_KEY = "df242858-4a62-43cd-b04c-a46bf838f48f"  # Replace with your NVD API key
 NVD_API_BASE_URL = "https://services.nvd.nist.gov/rest/json/cves/1.0"
-
-# Load or initialize cache
-def load_cache():
-    try:
-        with open(CACHE_FILE, "r") as file:
-            return json.load(file)
-    except FileNotFoundError:
-        return {}
-
-def save_cache(cache):
-    with open(CACHE_FILE, "w") as file:
-        json.dump(cache, file, indent=4)
 
 def save_results(results):
     # Add the latest updated timestamp
@@ -146,15 +133,9 @@ def get_image_name_from_deployment(deployment_name, namespace="default"):
         return None
 
 # Check vulnerabilities
-def check_vulnerabilities(packages, cache):
+def check_vulnerabilities(packages):
     all_vulnerabilities = []
     for package_name, version in packages:
-        cache_key = f"{package_name}@{version}"
-        if cache_key in cache:
-            print(f"Cache hit for {cache_key}.")
-            all_vulnerabilities.extend(cache[cache_key])
-            continue
-
         print(f"Checking vulnerabilities for package: {package_name}, version: {version}...")
         cve_list = [{"id": "N/A"}]  # Placeholder for CVE fetch
         vulnerabilities = []
@@ -179,10 +160,8 @@ def check_vulnerabilities(packages, cache):
                 "published_date": published_date,
             })
 
-        cache[cache_key] = vulnerabilities
         all_vulnerabilities.extend(vulnerabilities)
 
-    save_cache(cache)
     return all_vulnerabilities
 
 # Main function to run the security scan
@@ -193,8 +172,8 @@ def run_security_scan(image_name):
         if not packages:
             print("No packages found in the image.")
             return
-        cache = load_cache()
-        vulnerabilities = check_vulnerabilities(packages, cache)
+
+        vulnerabilities = check_vulnerabilities(packages)
         vulnerabilities = remove_duplicates(vulnerabilities)
 
         if vulnerabilities:

@@ -1,5 +1,5 @@
 {
-    "last_updated": "2024-12-09T22:22:49.846197",
+    "last_updated": "2024-12-11T16:28:55.349384",
     "scan_results": [
         {
             "package": "adduser",
@@ -8,7 +8,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:01.674742Z"
+            "published_date": "2024-12-11T16:27:40.767216Z"
         },
         {
             "package": "apt",
@@ -17,7 +17,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:02.055415Z"
+            "published_date": "2024-12-11T16:27:41.150392Z"
         },
         {
             "package": "apt-utils",
@@ -26,7 +26,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:02.445124Z"
+            "published_date": "2024-12-11T16:27:41.547920Z"
         },
         {
             "package": "base-files",
@@ -35,7 +35,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:02.833085Z"
+            "published_date": "2024-12-11T16:27:41.954718Z"
         },
         {
             "package": "base-passwd",
@@ -44,7 +44,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:03.213445Z"
+            "published_date": "2024-12-11T16:27:42.360993Z"
         },
         {
             "package": "bash",
@@ -53,7 +53,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:03.597923Z"
+            "published_date": "2024-12-11T16:27:42.747923Z"
         },
         {
             "package": "binutils",
@@ -62,7 +62,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:03.974705Z"
+            "published_date": "2024-12-11T16:27:43.132431Z"
         },
         {
             "package": "binutils-common",
@@ -71,7 +71,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:04.373738Z"
+            "published_date": "2024-12-11T16:27:43.511353Z"
         },
         {
             "package": "binutils-x86-64-linux-gnu",
@@ -80,7 +80,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:04.763342Z"
+            "published_date": "2024-12-11T16:27:43.897932Z"
         },
         {
             "package": "bsdutils",
@@ -89,7 +89,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:05.145046Z"
+            "published_date": "2024-12-11T16:27:44.287150Z"
         },
         {
             "package": "bzip2",
@@ -98,7 +98,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:05.528773Z"
+            "published_date": "2024-12-11T16:27:44.687650Z"
         },
         {
             "package": "ca-certificates",
@@ -107,7 +107,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:05.918058Z"
+            "published_date": "2024-12-11T16:27:45.090522Z"
         },
         {
             "package": "coreutils",
@@ -116,7 +116,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:06.314745Z"
+            "published_date": "2024-12-11T16:27:45.492514Z"
         },
         {
             "package": "curl",
@@ -125,7 +125,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:06.991150Z"
+            "published_date": "2024-12-11T16:27:45.880635Z"
         },
         {
             "package": "dash",
@@ -134,7 +134,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:07.375713Z"
+            "published_date": "2024-12-11T16:27:46.265708Z"
         },
         {
             "package": "debconf",
@@ -143,7 +143,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:07.768021Z"
+            "published_date": "2024-12-11T16:27:46.683473Z"
         },
         {
             "package": "debian-archive-keyring",
@@ -152,7 +152,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:08.150319Z"
+            "published_date": "2024-12-11T16:27:47.091504Z"
         },
         {
             "package": "debianutils",
@@ -161,7 +161,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:08.546690Z"
+            "published_date": "2024-12-11T16:27:47.496739Z"
         },
         {
             "package": "diffutils",
@@ -170,7 +170,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:08.960088Z"
+            "published_date": "2024-12-11T16:27:47.902640Z"
         },
         {
             "package": "dirmngr",
@@ -179,7 +179,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:09.355096Z"
+            "published_date": "2024-12-11T16:27:48.307084Z"
         },
         {
             "package": "dpkg",
@@ -188,7 +188,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:09.735100Z"
+            "published_date": "2024-12-11T16:27:48.706492Z"
         },
         {
             "package": "e2fsprogs",
@@ -197,7 +197,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:10.111954Z"
+            "published_date": "2024-12-11T16:27:49.113944Z"
         },
         {
             "package": "fdisk",
@@ -206,7 +206,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:10.491786Z"
+            "published_date": "2024-12-11T16:27:49.494959Z"
         },
         {
             "package": "findutils",
@@ -215,7 +215,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:10.865760Z"
+            "published_date": "2024-12-11T16:27:49.874928Z"
         },
         {
             "package": "fontconfig",
@@ -224,7 +224,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:11.261757Z"
+            "published_date": "2024-12-11T16:27:50.258103Z"
         },
         {
             "package": "fontconfig-config",
@@ -233,7 +233,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:11.674994Z"
+            "published_date": "2024-12-11T16:27:50.642110Z"
         },
         {
             "package": "fonts-dejavu-core",
@@ -242,7 +242,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:12.067696Z"
+            "published_date": "2024-12-11T16:27:51.041170Z"
         },
         {
             "package": "gcc-8-base",
@@ -251,7 +251,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:12.447905Z"
+            "published_date": "2024-12-11T16:27:51.447459Z"
         },
         {
             "package": "git",
@@ -260,7 +260,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:12.847926Z"
+            "published_date": "2024-12-11T16:27:51.826827Z"
         },
         {
             "package": "git-man",
@@ -269,7 +269,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:13.244264Z"
+            "published_date": "2024-12-11T16:27:52.235458Z"
         },
         {
             "package": "gnupg",
@@ -278,7 +278,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:13.645330Z"
+            "published_date": "2024-12-11T16:27:52.614986Z"
         },
         {
             "package": "gnupg-l10n",
@@ -287,7 +287,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:14.034959Z"
+            "published_date": "2024-12-11T16:27:53.000679Z"
         },
         {
             "package": "gnupg-utils",
@@ -296,7 +296,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:14.431041Z"
+            "published_date": "2024-12-11T16:27:53.377651Z"
         },
         {
             "package": "gpg",
@@ -305,7 +305,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:14.824421Z"
+            "published_date": "2024-12-11T16:27:53.766461Z"
         },
         {
             "package": "gpg-agent",
@@ -314,7 +314,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:15.202881Z"
+            "published_date": "2024-12-11T16:27:54.149651Z"
         },
         {
             "package": "gpg-wks-client",
@@ -323,7 +323,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:15.587018Z"
+            "published_date": "2024-12-11T16:27:54.530857Z"
         },
         {
             "package": "gpg-wks-server",
@@ -332,7 +332,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:15.968396Z"
+            "published_date": "2024-12-11T16:27:54.917880Z"
         },
         {
             "package": "gpgconf",
@@ -341,7 +341,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:16.358756Z"
+            "published_date": "2024-12-11T16:27:55.310324Z"
         },
         {
             "package": "gpgsm",
@@ -350,7 +350,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:16.771273Z"
+            "published_date": "2024-12-11T16:27:55.686802Z"
         },
         {
             "package": "gpgv",
@@ -359,7 +359,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:17.167579Z"
+            "published_date": "2024-12-11T16:27:56.068316Z"
         },
         {
             "package": "grep",
@@ -368,7 +368,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:17.552519Z"
+            "published_date": "2024-12-11T16:27:56.448741Z"
         },
         {
             "package": "gzip",
@@ -377,7 +377,7 @@
             "severity": "MEDIUM",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:17.942606Z"
+            "published_date": "2024-12-11T16:27:56.855501Z"
         },
         {
             "package": "hostname",
@@ -386,7 +386,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:18.339436Z"
+            "published_date": "2024-12-11T16:27:57.244407Z"
         },
         {
             "package": "init-system-helpers",
@@ -395,7 +395,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:18.741187Z"
+            "published_date": "2024-12-11T16:27:57.625373Z"
         },
         {
             "package": "iproute2",
@@ -404,7 +404,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:19.118982Z"
+            "published_date": "2024-12-11T16:27:58.001220Z"
         },
         {
             "package": "iputils-ping",
@@ -413,7 +413,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:19.499041Z"
+            "published_date": "2024-12-11T16:27:58.410756Z"
         },
         {
             "package": "libacl1",
@@ -422,7 +422,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:19.881446Z"
+            "published_date": "2024-12-11T16:27:58.791099Z"
         },
         {
             "package": "libapr1",
@@ -431,7 +431,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:20.288731Z"
+            "published_date": "2024-12-11T16:27:59.172882Z"
         },
         {
             "package": "libaprutil1",
@@ -440,7 +440,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:20.673535Z"
+            "published_date": "2024-12-11T16:27:59.573587Z"
         },
         {
             "package": "libapt-inst2.0",
@@ -449,7 +449,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:21.074203Z"
+            "published_date": "2024-12-11T16:27:59.987176Z"
         },
         {
             "package": "libapt-pkg5.0",
@@ -458,7 +458,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:21.447611Z"
+            "published_date": "2024-12-11T16:28:00.401945Z"
         },
         {
             "package": "libassuan0",
@@ -467,7 +467,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:21.852910Z"
+            "published_date": "2024-12-11T16:28:00.799401Z"
         },
         {
             "package": "libattr1",
@@ -476,7 +476,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:22.250396Z"
+            "published_date": "2024-12-11T16:28:01.225701Z"
         },
         {
             "package": "libaudit-common",
@@ -485,7 +485,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:22.648338Z"
+            "published_date": "2024-12-11T16:28:01.614703Z"
         },
         {
             "package": "libaudit1",
@@ -494,7 +494,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:23.042954Z"
+            "published_date": "2024-12-11T16:28:02.015729Z"
         },
         {
             "package": "libbinutils",
@@ -503,7 +503,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:23.442892Z"
+            "published_date": "2024-12-11T16:28:02.417877Z"
         },
         {
             "package": "libblkid1",
@@ -512,7 +512,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:23.845189Z"
+            "published_date": "2024-12-11T16:28:03.271164Z"
         },
         {
             "package": "libbsd0",
@@ -521,7 +521,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:24.228909Z"
+            "published_date": "2024-12-11T16:28:03.676396Z"
         },
         {
             "package": "libbz2-1.0",
@@ -530,7 +530,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:24.612058Z"
+            "published_date": "2024-12-11T16:28:04.087443Z"
         },
         {
             "package": "libc-bin",
@@ -539,7 +539,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:25.013456Z"
+            "published_date": "2024-12-11T16:28:04.507597Z"
         },
         {
             "package": "libc6",
@@ -548,7 +548,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:25.411259Z"
+            "published_date": "2024-12-11T16:28:04.916783Z"
         },
         {
             "package": "libcap-ng0",
@@ -557,7 +557,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:25.810018Z"
+            "published_date": "2024-12-11T16:28:05.316553Z"
         },
         {
             "package": "libcap2",
@@ -566,7 +566,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:26.214311Z"
+            "published_date": "2024-12-11T16:28:05.720850Z"
         },
         {
             "package": "libcap2-bin",
@@ -575,7 +575,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:26.616222Z"
+            "published_date": "2024-12-11T16:28:06.119696Z"
         },
         {
             "package": "libcom-err2",
@@ -584,7 +584,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:27.000945Z"
+            "published_date": "2024-12-11T16:28:06.504653Z"
         },
         {
             "package": "libcurl3-gnutls",
@@ -593,7 +593,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:27.420807Z"
+            "published_date": "2024-12-11T16:28:06.885199Z"
         },
         {
             "package": "libcurl4",
@@ -602,7 +602,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:27.819492Z"
+            "published_date": "2024-12-11T16:28:07.420258Z"
         },
         {
             "package": "libdb5.3",
@@ -611,7 +611,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:28.204399Z"
+            "published_date": "2024-12-11T16:28:07.820921Z"
         },
         {
             "package": "libdebconfclient0",
@@ -620,7 +620,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:28.587569Z"
+            "published_date": "2024-12-11T16:28:08.206134Z"
         },
         {
             "package": "libedit2",
@@ -629,7 +629,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:28.993761Z"
+            "published_date": "2024-12-11T16:28:08.600127Z"
         },
         {
             "package": "libelf1",
@@ -638,7 +638,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:29.375439Z"
+            "published_date": "2024-12-11T16:28:08.985836Z"
         },
         {
             "package": "liberror-perl",
@@ -647,7 +647,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:29.781451Z"
+            "published_date": "2024-12-11T16:28:09.372195Z"
         },
         {
             "package": "libexpat1",
@@ -656,7 +656,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:30.193951Z"
+            "published_date": "2024-12-11T16:28:09.756798Z"
         },
         {
             "package": "libext2fs2",
@@ -665,7 +665,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:30.576136Z"
+            "published_date": "2024-12-11T16:28:10.142836Z"
         },
         {
             "package": "libfdisk1",
@@ -674,7 +674,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:30.969140Z"
+            "published_date": "2024-12-11T16:28:10.666631Z"
         },
         {
             "package": "libffi6",
@@ -683,7 +683,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:31.492459Z"
+            "published_date": "2024-12-11T16:28:11.051263Z"
         },
         {
             "package": "libfontconfig1",
@@ -692,7 +692,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:31.895159Z"
+            "published_date": "2024-12-11T16:28:11.457061Z"
         },
         {
             "package": "libfreetype6",
@@ -701,7 +701,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:32.322406Z"
+            "published_date": "2024-12-11T16:28:11.849103Z"
         },
         {
             "package": "libgcc1",
@@ -710,7 +710,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:32.740151Z"
+            "published_date": "2024-12-11T16:28:12.249334Z"
         },
         {
             "package": "libgcrypt20",
@@ -719,7 +719,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:33.131735Z"
+            "published_date": "2024-12-11T16:28:12.645489Z"
         },
         {
             "package": "libgdbm-compat4",
@@ -728,7 +728,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:33.551861Z"
+            "published_date": "2024-12-11T16:28:13.043318Z"
         },
         {
             "package": "libgdbm6",
@@ -737,7 +737,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:33.967199Z"
+            "published_date": "2024-12-11T16:28:13.421568Z"
         },
         {
             "package": "libgmp10",
@@ -746,7 +746,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:34.358930Z"
+            "published_date": "2024-12-11T16:28:13.828173Z"
         },
         {
             "package": "libgnutls30",
@@ -755,7 +755,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:34.782916Z"
+            "published_date": "2024-12-11T16:28:14.233543Z"
         },
         {
             "package": "libgpg-error0",
@@ -764,7 +764,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:35.205169Z"
+            "published_date": "2024-12-11T16:28:14.629127Z"
         },
         {
             "package": "libgssapi-krb5-2",
@@ -773,7 +773,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:35.967766Z"
+            "published_date": "2024-12-11T16:28:15.011927Z"
         },
         {
             "package": "libhogweed4",
@@ -782,7 +782,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:36.375898Z"
+            "published_date": "2024-12-11T16:28:15.431728Z"
         },
         {
             "package": "libidn2-0",
@@ -791,7 +791,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:36.771242Z"
+            "published_date": "2024-12-11T16:28:15.811150Z"
         },
         {
             "package": "libk5crypto3",
@@ -800,7 +800,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:37.179577Z"
+            "published_date": "2024-12-11T16:28:16.206043Z"
         },
         {
             "package": "libkeyutils1",
@@ -809,7 +809,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:37.567474Z"
+            "published_date": "2024-12-11T16:28:16.594857Z"
         },
         {
             "package": "libkrb5-3",
@@ -818,7 +818,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:37.954526Z"
+            "published_date": "2024-12-11T16:28:16.988480Z"
         },
         {
             "package": "libkrb5support0",
@@ -827,7 +827,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:38.334276Z"
+            "published_date": "2024-12-11T16:28:17.367491Z"
         },
         {
             "package": "libksba8",
@@ -836,7 +836,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:38.717079Z"
+            "published_date": "2024-12-11T16:28:17.765174Z"
         },
         {
             "package": "libldap-2.4-2",
@@ -845,7 +845,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:39.104514Z"
+            "published_date": "2024-12-11T16:28:18.166321Z"
         },
         {
             "package": "libldap-common",
@@ -854,7 +854,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:39.498099Z"
+            "published_date": "2024-12-11T16:28:18.550675Z"
         },
         {
             "package": "liblz4-1",
@@ -863,7 +863,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:39.886915Z"
+            "published_date": "2024-12-11T16:28:18.960248Z"
         },
         {
             "package": "liblzma5",
@@ -872,7 +872,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:40.278357Z"
+            "published_date": "2024-12-11T16:28:19.344451Z"
         },
         {
             "package": "libmnl0",
@@ -881,7 +881,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:40.682838Z"
+            "published_date": "2024-12-11T16:28:19.727920Z"
         },
         {
             "package": "libmount1",
@@ -890,7 +890,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:41.063039Z"
+            "published_date": "2024-12-11T16:28:20.132552Z"
         },
         {
             "package": "libncurses6",
@@ -899,7 +899,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:41.459926Z"
+            "published_date": "2024-12-11T16:28:20.517729Z"
         },
         {
             "package": "libncursesw6",
@@ -908,7 +908,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:41.846125Z"
+            "published_date": "2024-12-11T16:28:20.928217Z"
         },
         {
             "package": "libnettle6",
@@ -917,7 +917,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:42.224668Z"
+            "published_date": "2024-12-11T16:28:21.334349Z"
         },
         {
             "package": "libnghttp2-14",
@@ -926,7 +926,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:42.609687Z"
+            "published_date": "2024-12-11T16:28:21.717987Z"
         },
         {
             "package": "libnpth0",
@@ -935,7 +935,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:43.012721Z"
+            "published_date": "2024-12-11T16:28:22.121733Z"
         },
         {
             "package": "libp11-kit0",
@@ -944,7 +944,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:43.406066Z"
+            "published_date": "2024-12-11T16:28:22.529890Z"
         },
         {
             "package": "libpam-modules",
@@ -953,7 +953,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:43.808379Z"
+            "published_date": "2024-12-11T16:28:22.931896Z"
         },
         {
             "package": "libpam-modules-bin",
@@ -962,7 +962,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:44.204170Z"
+            "published_date": "2024-12-11T16:28:23.331623Z"
         },
         {
             "package": "libpam-runtime",
@@ -971,7 +971,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:44.587329Z"
+            "published_date": "2024-12-11T16:28:23.735121Z"
         },
         {
             "package": "libpam0g",
@@ -980,7 +980,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:44.993657Z"
+            "published_date": "2024-12-11T16:28:24.134920Z"
         },
         {
             "package": "libpcre2-8-0",
@@ -989,7 +989,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:45.398228Z"
+            "published_date": "2024-12-11T16:28:24.528128Z"
         },
         {
             "package": "libpcre3",
@@ -998,7 +998,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:45.801223Z"
+            "published_date": "2024-12-11T16:28:24.909476Z"
         },
         {
             "package": "libperl5.28",
@@ -1007,7 +1007,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:46.210738Z"
+            "published_date": "2024-12-11T16:28:25.299115Z"
         },
         {
             "package": "libpng16-16",
@@ -1016,7 +1016,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:46.592918Z"
+            "published_date": "2024-12-11T16:28:25.697599Z"
         },
         {
             "package": "libprocps7",
@@ -1025,7 +1025,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:46.991844Z"
+            "published_date": "2024-12-11T16:28:26.079959Z"
         },
         {
             "package": "libpsl5",
@@ -1034,7 +1034,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:47.374139Z"
+            "published_date": "2024-12-11T16:28:26.487653Z"
         },
         {
             "package": "libpython-stdlib",
@@ -1043,7 +1043,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:47.754146Z"
+            "published_date": "2024-12-11T16:28:26.900538Z"
         },
         {
             "package": "libpython2-stdlib",
@@ -1052,7 +1052,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:48.165036Z"
+            "published_date": "2024-12-11T16:28:27.299526Z"
         },
         {
             "package": "libpython2.7-minimal",
@@ -1061,7 +1061,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:48.556391Z"
+            "published_date": "2024-12-11T16:28:27.686422Z"
         },
         {
             "package": "libpython2.7-stdlib",
@@ -1070,7 +1070,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:48.943562Z"
+            "published_date": "2024-12-11T16:28:28.083570Z"
         },
         {
             "package": "libreadline7",
@@ -1079,7 +1079,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:49.328029Z"
+            "published_date": "2024-12-11T16:28:28.466865Z"
         },
         {
             "package": "librtmp1",
@@ -1088,7 +1088,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:49.722672Z"
+            "published_date": "2024-12-11T16:28:28.867935Z"
         },
         {
             "package": "libsasl2-2",
@@ -1097,7 +1097,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:50.131202Z"
+            "published_date": "2024-12-11T16:28:29.254193Z"
         },
         {
             "package": "libsasl2-modules-db",
@@ -1106,7 +1106,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:50.559059Z"
+            "published_date": "2024-12-11T16:28:29.662805Z"
         },
         {
             "package": "libseccomp2",
@@ -1115,7 +1115,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:50.965479Z"
+            "published_date": "2024-12-11T16:28:30.068653Z"
         },
         {
             "package": "libselinux1",
@@ -1124,7 +1124,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:51.363486Z"
+            "published_date": "2024-12-11T16:28:30.460295Z"
         },
         {
             "package": "libsemanage-common",
@@ -1133,7 +1133,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:51.741990Z"
+            "published_date": "2024-12-11T16:28:31.858237Z"
         },
         {
             "package": "libsemanage1",
@@ -1142,7 +1142,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:52.120208Z"
+            "published_date": "2024-12-11T16:28:32.267736Z"
         },
         {
             "package": "libsepol1",
@@ -1151,7 +1151,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:52.498535Z"
+            "published_date": "2024-12-11T16:28:32.666701Z"
         },
         {
             "package": "libserf-1-1",
@@ -1160,7 +1160,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:52.877964Z"
+            "published_date": "2024-12-11T16:28:33.049564Z"
         },
         {
             "package": "libsmartcols1",
@@ -1169,7 +1169,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:53.260938Z"
+            "published_date": "2024-12-11T16:28:33.441612Z"
         },
         {
             "package": "libsqlite3-0",
@@ -1178,7 +1178,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:53.646211Z"
+            "published_date": "2024-12-11T16:28:33.887863Z"
         },
         {
             "package": "libss2",
@@ -1187,7 +1187,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:54.069881Z"
+            "published_date": "2024-12-11T16:28:34.278491Z"
         },
         {
             "package": "libssh2-1",
@@ -1196,7 +1196,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:54.473524Z"
+            "published_date": "2024-12-11T16:28:34.675513Z"
         },
         {
             "package": "libssl1.1",
@@ -1205,7 +1205,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:54.884285Z"
+            "published_date": "2024-12-11T16:28:35.091047Z"
         },
         {
             "package": "libstdc++6",
@@ -1214,7 +1214,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:55.266701Z"
+            "published_date": "2024-12-11T16:28:35.480450Z"
         },
         {
             "package": "libsvn1",
@@ -1223,7 +1223,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:55.670851Z"
+            "published_date": "2024-12-11T16:28:35.874848Z"
         },
         {
             "package": "libsystemd0",
@@ -1232,7 +1232,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:56.079435Z"
+            "published_date": "2024-12-11T16:28:36.275323Z"
         },
         {
             "package": "libtasn1-6",
@@ -1241,7 +1241,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:56.455462Z"
+            "published_date": "2024-12-11T16:28:36.670696Z"
         },
         {
             "package": "libtinfo6",
@@ -1250,7 +1250,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:56.857744Z"
+            "published_date": "2024-12-11T16:28:37.375308Z"
         },
         {
             "package": "libudev1",
@@ -1259,7 +1259,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:57.235189Z"
+            "published_date": "2024-12-11T16:28:37.783346Z"
         },
         {
             "package": "libunistring2",
@@ -1268,7 +1268,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:57.615498Z"
+            "published_date": "2024-12-11T16:28:38.184840Z"
         },
         {
             "package": "libutf8proc2",
@@ -1277,7 +1277,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:58.002125Z"
+            "published_date": "2024-12-11T16:28:38.570413Z"
         },
         {
             "package": "libuuid1",
@@ -1286,7 +1286,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:58.375680Z"
+            "published_date": "2024-12-11T16:28:38.971652Z"
         },
         {
             "package": "libxtables12",
@@ -1295,7 +1295,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:58.752324Z"
+            "published_date": "2024-12-11T16:28:39.353958Z"
         },
         {
             "package": "libzstd1",
@@ -1304,7 +1304,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:59.135134Z"
+            "published_date": "2024-12-11T16:28:39.759510Z"
         },
         {
             "package": "login",
@@ -1313,7 +1313,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:59.536487Z"
+            "published_date": "2024-12-11T16:28:40.139196Z"
         },
         {
             "package": "lsb-base",
@@ -1322,7 +1322,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:16:59.916121Z"
+            "published_date": "2024-12-11T16:28:40.662927Z"
         },
         {
             "package": "mawk",
@@ -1331,7 +1331,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:17:00.319866Z"
+            "published_date": "2024-12-11T16:28:41.057566Z"
         },
         {
             "package": "mercurial",
@@ -1340,7 +1340,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:17:00.723034Z"
+            "published_date": "2024-12-11T16:28:41.441001Z"
         },
         {
             "package": "mercurial-common",
@@ -1349,7 +1349,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:17:01.133527Z"
+            "published_date": "2024-12-11T16:28:41.851289Z"
         },
         {
             "package": "mime-support",
@@ -1358,7 +1358,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:17:01.611854Z"
+            "published_date": "2024-12-11T16:28:42.235244Z"
         },
         {
             "package": "mount",
@@ -1367,7 +1367,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:17:02.017374Z"
+            "published_date": "2024-12-11T16:28:42.619319Z"
         },
         {
             "package": "ncurses-base",
@@ -1376,7 +1376,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:17:02.411498Z"
+            "published_date": "2024-12-11T16:28:42.995561Z"
         },
         {
             "package": "ncurses-bin",
@@ -1385,7 +1385,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:17:02.791198Z"
+            "published_date": "2024-12-11T16:28:43.400908Z"
         },
         {
             "package": "netbase",
@@ -1394,7 +1394,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:17:03.188543Z"
+            "published_date": "2024-12-11T16:28:43.813367Z"
         },
         {
             "package": "openssh-client",
@@ -1403,7 +1403,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:17:03.571042Z"
+            "published_date": "2024-12-11T16:28:44.194164Z"
         },
         {
             "package": "openssl",
@@ -1412,7 +1412,7 @@
             "severity": "HIGH",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:17:03.958032Z"
+            "published_date": "2024-12-11T16:28:44.576389Z"
         },
         {
             "package": "p11-kit",
@@ -1421,7 +1421,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:17:04.359275Z"
+            "published_date": "2024-12-11T16:28:44.957236Z"
         },
         {
             "package": "p11-kit-modules",
@@ -1430,7 +1430,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:17:04.761618Z"
+            "published_date": "2024-12-11T16:28:45.329746Z"
         },
         {
             "package": "passwd",
@@ -1439,7 +1439,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:17:05.144408Z"
+            "published_date": "2024-12-11T16:28:45.739948Z"
         },
         {
             "package": "perl",
@@ -1448,7 +1448,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:17:05.521991Z"
+            "published_date": "2024-12-11T16:28:46.125373Z"
         },
         {
             "package": "perl-base",
@@ -1457,7 +1457,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:17:05.896791Z"
+            "published_date": "2024-12-11T16:28:46.534977Z"
         },
         {
             "package": "perl-modules-5.28",
@@ -1466,7 +1466,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:17:06.290181Z"
+            "published_date": "2024-12-11T16:28:46.916512Z"
         },
         {
             "package": "pinentry-curses",
@@ -1475,7 +1475,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:17:06.681714Z"
+            "published_date": "2024-12-11T16:28:47.295158Z"
         },
         {
             "package": "procps",
@@ -1484,7 +1484,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:17:07.368165Z"
+            "published_date": "2024-12-11T16:28:47.672164Z"
         },
         {
             "package": "python",
@@ -1493,7 +1493,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:17:07.759320Z"
+            "published_date": "2024-12-11T16:28:48.047453Z"
         },
         {
             "package": "python-minimal",
@@ -1502,7 +1502,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:17:08.149730Z"
+            "published_date": "2024-12-11T16:28:48.423403Z"
         },
         {
             "package": "python2",
@@ -1511,7 +1511,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:17:08.544699Z"
+            "published_date": "2024-12-11T16:28:48.800955Z"
         },
         {
             "package": "python2-minimal",
@@ -1520,7 +1520,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:17:08.922269Z"
+            "published_date": "2024-12-11T16:28:49.184555Z"
         },
         {
             "package": "python2.7",
@@ -1529,7 +1529,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:17:09.301776Z"
+            "published_date": "2024-12-11T16:28:49.586759Z"
         },
         {
             "package": "python2.7-minimal",
@@ -1538,7 +1538,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:17:09.700288Z"
+            "published_date": "2024-12-11T16:28:49.969776Z"
         },
         {
             "package": "readline-common",
@@ -1547,7 +1547,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:17:10.078824Z"
+            "published_date": "2024-12-11T16:28:50.347374Z"
         },
         {
             "package": "sed",
@@ -1556,7 +1556,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:17:10.484630Z"
+            "published_date": "2024-12-11T16:28:50.730660Z"
         },
         {
             "package": "sensible-utils",
@@ -1565,7 +1565,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:17:10.862219Z"
+            "published_date": "2024-12-11T16:28:51.120374Z"
         },
         {
             "package": "subversion",
@@ -1574,7 +1574,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:17:11.241307Z"
+            "published_date": "2024-12-11T16:28:51.497174Z"
         },
         {
             "package": "sysvinit-utils",
@@ -1583,7 +1583,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:17:11.644691Z"
+            "published_date": "2024-12-11T16:28:51.902846Z"
         },
         {
             "package": "tar",
@@ -1592,7 +1592,7 @@
             "severity": "MEDIUM",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:17:12.024951Z"
+            "published_date": "2024-12-11T16:28:52.287953Z"
         },
         {
             "package": "tzdata",
@@ -1601,7 +1601,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:17:12.425787Z"
+            "published_date": "2024-12-11T16:28:52.680985Z"
         },
         {
             "package": "ucf",
@@ -1610,7 +1610,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:17:12.815557Z"
+            "published_date": "2024-12-11T16:28:53.062762Z"
         },
         {
             "package": "unzip",
@@ -1619,7 +1619,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:17:13.216459Z"
+            "published_date": "2024-12-11T16:28:53.447627Z"
         },
         {
             "package": "util-linux",
@@ -1628,7 +1628,7 @@
             "severity": "HIGH",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:17:13.620322Z"
+            "published_date": "2024-12-11T16:28:53.829457Z"
         },
         {
             "package": "wget",
@@ -1637,7 +1637,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:17:14.010900Z"
+            "published_date": "2024-12-11T16:28:54.206077Z"
         },
         {
             "package": "xz-utils",
@@ -1646,7 +1646,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:17:14.393712Z"
+            "published_date": "2024-12-11T16:28:54.586618Z"
         },
         {
             "package": "zlib1g",
@@ -1655,7 +1655,7 @@
             "severity": "LOW",
             "cvss_score": "N/A",
             "description": "N/A",
-            "published_date": "2024-12-09T22:17:14.775050Z"
+            "published_date": "2024-12-11T16:28:54.986463Z"
         }
     ]
 }
