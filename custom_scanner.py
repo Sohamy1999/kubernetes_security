@@ -5,32 +5,9 @@ import time
 from datetime import datetime
 
 # Constants
-CACHE_FILE = "vulnerability_cache.json"
-RESULTS_FILE = "scan_results.json"
 MAX_RETRIES = 3
 API_KEY = "df242858-4a62-43cd-b04c-a46bf838f48f"  # Replace with your NVD API key
 NVD_API_BASE_URL = "https://services.nvd.nist.gov/rest/json/cves/1.0"
-
-# Load or initialize cache
-def load_cache():
-    try:
-        with open(CACHE_FILE, "r") as file:
-            return json.load(file)
-    except FileNotFoundError:
-        return {}
-
-def save_cache(cache):
-    with open(CACHE_FILE, "w") as file:
-        json.dump(cache, file, indent=4)
-
-def save_results(results):
-    # Add the latest updated timestamp
-    results_metadata = {
-        "last_updated": datetime.now().isoformat(),
-        "scan_results": results
-    }
-    with open(RESULTS_FILE, "w") as file:
-        json.dump(results_metadata, file, indent=4)
 
 # Remove duplicate vulnerabilities
 def remove_duplicates(vulnerabilities):
@@ -39,9 +16,6 @@ def remove_duplicates(vulnerabilities):
 
 # Functions for severity evaluation
 def evaluate_severity_from_description(description):
-    """
-    Determine severity based on keywords in the description.
-    """
     high_keywords = ["remote code execution", "privilege escalation", "arbitrary code execution", "critical"]
     medium_keywords = ["denial of service", "out-of-bounds", "information disclosure", "memory corruption"]
     description = description.lower()
@@ -51,36 +25,33 @@ def evaluate_severity_from_description(description):
         return "MEDIUM"
     else:
         return "LOW"
+
 def fallback_severity_by_package(package_name):
-    """
-    Determine severity based on package importance.
-    """
     package_importance = {
         "openssl": "HIGH",
         "util-linux": "HIGH",
         "systemd": "HIGH",
         "gzip": "MEDIUM",
         "tar": "MEDIUM",
-        # Add more packages as necessary
     }
     return package_importance.get(package_name, "LOW")
+
 def determine_severity(vulnerability):
-    """
-    Determine severity using description and package importance.
-    """
     severity = evaluate_severity_from_description(vulnerability.get("description", ""))
-    if severity == "LOW":  # If description analysis yields low, fallback to package importance
+    if severity == "LOW":
         severity = fallback_severity_by_package(vulnerability["package"])
     return severity
+
 # Generate fallback CVE data
 def generate_fallback_cve(package_name, version):
     return {
         "cve_id": "N/A",
         "description": f"A potential vulnerability identified in {package_name} version {version}. Details are under analysis.",
-        "published_date": datetime.now().isoformat() + "Z",  # Fallback uses the current timestamp
+        "published_date": datetime.now().isoformat() + "Z",
         "cvss_score": "N/A",
         "severity": fallback_severity_by_package(package_name),
     }
+
 # Enrich vulnerability data using NVD API
 def enrich_with_nvd(cve_id, package_name, version):
     url = f"{NVD_API_BASE_URL}?cveId={cve_id}&apiKey={API_KEY}"
@@ -138,15 +109,9 @@ def get_image_name_from_deployment(deployment_name, namespace="default"):
         return None
 
 # Check vulnerabilities
-def check_vulnerabilities(packages, cache):
+def check_vulnerabilities(packages):
     all_vulnerabilities = []
     for package_name, version in packages:
-        cache_key = f"{package_name}@{version}"
-        if cache_key in cache:
-            print(f"Cache hit for {cache_key}.")
-            all_vulnerabilities.extend(cache[cache_key])
-            continue
-
         print(f"Checking vulnerabilities for package: {package_name}, version: {version}...")
         cve_list = [{"id": "N/A"}]  # Placeholder for CVE fetch
         vulnerabilities = []
@@ -168,10 +133,8 @@ def check_vulnerabilities(packages, cache):
                 "description": cve.get("description", "N/A"),
                 "published_date": published_date,
             })
-        cache[cache_key] = vulnerabilities
         all_vulnerabilities.extend(vulnerabilities)
 
-    save_cache(cache)
     return all_vulnerabilities
 
 # Main function to run the security scan
@@ -182,16 +145,13 @@ def run_security_scan(image_name):
         if not packages:
             print("No packages found in the image.")
             return
-        cache = load_cache()
-        vulnerabilities = check_vulnerabilities(packages, cache)
+        vulnerabilities = check_vulnerabilities(packages)
         vulnerabilities = remove_duplicates(vulnerabilities)
 
         if vulnerabilities:
             print("\nVulnerabilities found:")
             for vuln in vulnerabilities:
                 print(json.dumps(vuln, indent=4))
-            save_results(vulnerabilities)
-            print(f"Scan results saved to {RESULTS_FILE}.")
         else:
             print("No vulnerabilities found.")
     except Exception as e:
